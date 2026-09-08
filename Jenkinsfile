@@ -11,23 +11,19 @@ pipeline {
 
         stage("Create an EKS Cluster") {
             steps {
-                script {
-                    dir('tf-eks') {
-                        sh "terraform init"
-                        sh "terraform apply -auto-approve"
-                    }
+                dir('tf-eks') {
+                    sh "terraform init"
+                    sh "terraform apply -auto-approve -var-file=terraform.tfvars"
                 }
             }
         }
 
         stage("Deploy to EKS") {
             steps {
-                script {
-                    dir('kubernetes') {
-                        sh "aws eks update-kubeconfig --name my-eks-cluster --region ap-south-1"
-                        sh "kubectl apply -f nginx-deployment.yaml"
-                        sh "kubectl apply -f nginx-service.yaml"
-                    }
+                dir('kubernetes') {
+                    sh "aws eks update-kubeconfig --name my-eks-cluster --region ap-south-1"
+                    sh "kubectl apply -f nginx-deployment.yaml"
+                    sh "kubectl apply -f nginx-service.yaml"
                 }
             }
         }
