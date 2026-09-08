@@ -2,7 +2,7 @@
 pipeline {
     agent any
     environment {
-        AWS_DEFAULT_REGION = "ap-south-1"
+        AWS_DEFAULT_REGION = "ap-south-1a"
     }
     stages {
         stage("Create an EKS Cluster") {
