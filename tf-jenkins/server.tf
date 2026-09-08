@@ -14,7 +14,7 @@ data "aws_ami" "latest-amazon-linux-image" {
 resource "aws_instance" "my-server" {
   ami                         = data.aws_ami.latest-amazon-linux-image.id
   instance_type               = var.instance_type
-  key_name                    = "devops-project.pem"
+  key_name                    = "devops-project"
   subnet_id                   = aws_subnet.jenkins-subnet-1.id
   vpc_security_group_ids      = [aws_default_security_group.default-sg.id]
   availability_zone           = var.availability_zone
