@@ -14,15 +14,16 @@ module "eks" {
   enable_cluster_creator_admin_permissions = true
 
   addons = {
-    coredns = {
-      most_recent = true
+    vpc-cni = {
+      most_recent    = true
+      before_compute = true
     }
 
     kube-proxy = {
       most_recent = true
     }
 
-    vpc-cni = {
+    coredns = {
       most_recent = true
     }
   }
