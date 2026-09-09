@@ -11,7 +11,7 @@ pipeline {
 
         stage("Create an EKS Cluster") {
             steps {
-                dir('tf-eks') {
+                dir('2-terraform-eks-deployment') {
                     sh "terraform init -upgrade"
                     sh "terraform apply -auto-approve -var-file=terraform.tfvars"
                 }
