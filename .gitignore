@@ -1,5 +1,65 @@
+# ==========================================
+# Terraform
+# ==========================================
+
 .terraform/
 *.tfstate
 *.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ==========================================
+# Sensitive files
+# ==========================================
+
 *.pem
-.terraform.lock.hcl
+*.key
+*.p12
+*.pfx
+
+# ==========================================
+# AWS / Credentials
+# ==========================================
+
+.aws/
+credentials
+config
+
+# ==========================================
+# Kubernetes
+# ==========================================
+
+*.kubeconfig
+kubeconfig
+
+# ==========================================
+# Jenkins
+# ==========================================
+
+jenkins_home/
+
+# ==========================================
+# OS files
+# ==========================================
+
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# IDE / Editor
+# ==========================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
