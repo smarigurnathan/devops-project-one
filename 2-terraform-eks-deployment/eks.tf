@@ -22,8 +22,8 @@ module "eks" {
       min_size     = 1
       max_size     = 2
       desired_size = 1
-
-      instance_types = ["t3.small"]
+      
+      instance_types = ["c7i-flex.large"]
 
       # Required/suitable for Kubernetes 1.35
       ami_type = "AL2023_x86_64_STANDARD"
